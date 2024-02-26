@@ -1,15 +1,26 @@
 ﻿using Application.Interfaces;
+using Domain;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
 [ApiController]
-public class ProductController
+[Route("api/[controller]")]
+public class ProductController(IProductService productService) : ControllerBase
 {
-    private readonly IProductService _productService;
+    private readonly IProductService _productService = productService;
 
-    private ProductController(IProductService productService)
+    [HttpGet]
+    public ActionResult GetProducts()
     {
-        _productService = productService;
+        try
+        {
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
     }
 }
