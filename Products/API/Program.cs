@@ -11,8 +11,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<DatabaseContext>(options =>
 {
-    options.UseSqlite("" +
-                      "Data Source=db.db");
+    options.UseSqlite("Data Source=db.db");
     options.EnableSensitiveDataLogging();
     options.EnableDetailedErrors();
 });
