@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-USE DFD_Compulsory_Assignemnt
+USE DFD_Compulsory_Assignment
 GO
 
 DECLARE @MigrationVersion DECIMAL(5,1);

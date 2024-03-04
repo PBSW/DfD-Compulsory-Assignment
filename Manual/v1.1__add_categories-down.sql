@@ -1,6 +1,8 @@
-BEGIN TRANSACTION;
 
-USE DFD_Compulsory_Assignemnt;
+
+USE DFD_Compulsory_Assignment;
+
+BEGIN TRANSACTION;
 
 DECLARE @MigrationVersion DECIMAL(5,1);
 DECLARE @CurrentVersion DECIMAL(5,1);
@@ -32,8 +34,8 @@ DROP COLUMN CategoryId;
 -- Delete the Categories table
 DROP TABLE Categories;
 
--- Remove the migration entry for version 1.1
-DELETE FROM Migrations WHERE MigrationName = 'Add Categories' AND Version = 1.1;
+-- Add Migration entry
+EXEC AddMigration @MigrationName = 'Remove categories', @Version = 1.0;
 END
 
 COMMIT TRANSACTION;

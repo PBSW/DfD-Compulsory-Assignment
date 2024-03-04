@@ -3,10 +3,12 @@
 USE [master]
 GO
 
-CREATE DATABASE DFD_Compulsory_Assignemnt
+
+
+CREATE DATABASE DFD_Compulsory_Assignment
 GO
 
-USE DFD_Compulsory_Assignemnt
+USE DFD_Compulsory_Assignment
 GO
 
 --Table
