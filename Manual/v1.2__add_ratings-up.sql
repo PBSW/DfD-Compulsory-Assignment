@@ -8,11 +8,11 @@ DECLARE @CurrentVersion DECIMAL(5,1);
 -- Store the current version in the variable @CurrentVersion
 SET @CurrentVersion = (SELECT TOP 1 Version FROM Migrations ORDER BY AppliedDateTime DESC);
 
-IF @CurrentVersion <> 1.0
+IF @CurrentVersion <> 1.1
 BEGIN
     -- Cancel the transaction
     ROLLBACK TRANSACTION;
-    RAISERROR('The current version is not 1.0. Transaction cancelled.', 16, 1);
+    RAISERROR('The current version is not 1.1. Transaction cancelled.', 16, 1);
 END
 ELSE
 BEGIN
@@ -41,7 +41,7 @@ VALUES
 END
 BEGIN
 
-EXEC AddMigration @MigrationName = 'Add Ratings', @Version = 1.1;
+EXEC AddMigration @MigrationName = 'Add Ratings', @Version = 1.2;
 
 END
 
