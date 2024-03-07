@@ -3,13 +3,8 @@ BEGIN TRANSACTION;
 USE DFD_Compulsory_Assignment
 GO
 
-DECLARE @MigrationVersion DECIMAL(5,1);
 DECLARE @CurrentVersion DECIMAL(5,1);
-SET @MigrationVersion = 1.1;
 
-
--- Execute the GetCurrentMigration procedure to get the current migration
-EXEC GetCurrentMigration;
 -- Store the current version in the variable @CurrentVersion
 SET @CurrentVersion = (SELECT TOP 1 Version FROM Migrations ORDER BY AppliedDateTime DESC);
 
@@ -21,8 +16,6 @@ BEGIN
 END
 ELSE
 BEGIN
-
-
 
 CREATE TABLE Categories (
 	CategoryId INT IDENTITY(1,1) PRIMARY KEY,
