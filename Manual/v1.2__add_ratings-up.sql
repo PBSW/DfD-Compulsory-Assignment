@@ -3,27 +3,21 @@ BEGIN TRANSACTION;
 USE DFD_Compulsory_Assignment
 GO
 
-DECLARE @MigrationVersion DECIMAL(5,1);
 DECLARE @CurrentVersion DECIMAL(5,1);
-SET @MigrationVersion = 1.2;
 
-
--- Execute the GetCurrentMigration procedure to get the current migration
-EXEC GetCurrentMigration;
 -- Store the current version in the variable @CurrentVersion
 SET @CurrentVersion = (SELECT TOP 1 Version FROM Migrations ORDER BY AppliedDateTime DESC);
 
-IF @CurrentVersion <> 1.1
+IF @CurrentVersion <> 1.0
 BEGIN
     -- Cancel the transaction
     ROLLBACK TRANSACTION;
-    RAISERROR('The current version is not 1.1. Transaction cancelled.', 16, 1);
+    RAISERROR('The current version is not 1.0. Transaction cancelled.', 16, 1);
 END
 ELSE
 BEGIN
 
-
-
+-- Create the product table
 CREATE TABLE ProductRating (
     ID INT IDENTITY(1,1) PRIMARY KEY,
     Review NVARCHAR(MAX),
@@ -47,7 +41,7 @@ VALUES
 END
 BEGIN
 
-EXEC AddMigration @MigrationName = 'Add Ratings', @Version = 1.2;
+EXEC AddMigration @MigrationName = 'Add Ratings', @Version = 1.1;
 
 END
 
