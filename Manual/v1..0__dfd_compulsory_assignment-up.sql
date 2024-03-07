@@ -3,8 +3,6 @@
 USE [master]
 GO
 
-
-
 CREATE DATABASE DFD_Compulsory_Assignment
 GO
 
