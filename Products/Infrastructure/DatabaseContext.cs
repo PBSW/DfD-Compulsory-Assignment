@@ -24,11 +24,20 @@ public class DatabaseContext : DbContext
             .HasKey(i => i.Id)
             .HasName("PK_Category");
         
+        modelBuilder.Entity<Rating>()
+            .HasKey(i => i.Id)
+            .HasName("PK_Rating");
+
         // Relations
         modelBuilder.Entity<Product>()
             .HasOne<Category>()
             .WithMany()
             .HasForeignKey(i => i.CategoryId);
+        
+        modelBuilder.Entity<Rating>()
+            .HasOne<Product>()
+            .WithMany()
+            .HasForeignKey(i => i.ProductId);
     }
     
     public DbSet<Product> Products { get; set; }
