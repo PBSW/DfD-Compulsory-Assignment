@@ -5,7 +5,7 @@
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class v10204310032424addcategories : Migration
+    public partial class inital : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
