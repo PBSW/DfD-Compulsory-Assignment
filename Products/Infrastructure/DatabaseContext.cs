@@ -28,8 +28,17 @@ public class DatabaseContext : DbContext
             .Property(i => i.Id)
             .ValueGeneratedOnAdd();
         
+        modelBuilder.Entity<Rating>()
+            .HasKey(i => i.Id)
+            .HasName("PK_Rating");
+        
         // Relationships
         modelBuilder.Entity<Category>()
+            .HasOne<Product>()
+            .WithMany()
+            .HasForeignKey(i => i.ProductId);
+        
+        modelBuilder.Entity<Rating>()
             .HasOne<Product>()
             .WithMany()
             .HasForeignKey(i => i.ProductId);
