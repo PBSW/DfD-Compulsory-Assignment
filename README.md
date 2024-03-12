@@ -38,11 +38,12 @@ dotnet ef migration list -p API
 ```
 
 Rollback:
+1. Rollback Dataebase state to non-faulty migration:
 ```console
 dotnet ef database update <previous migration> -p Infrastructure -s API
 ```
 
-Remove Migration:
+2. Remove Migration:
 ```console
 dotnet ef migration remove <Migration Name> -p Infrastructure -s API
 ```
