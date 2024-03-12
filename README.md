@@ -24,7 +24,7 @@ the migrations is located in the Manuel folder as SQL scripts
 1. Create Migration:
 
 ```console
-dotnet ef migration <Migration Name> -p Infrastructure -s API
+dotnet ef migration add <Migration Name> -p Infrastructure -s API
 ```
 
 2. Update Database to latest migration:
@@ -42,4 +42,8 @@ Rollback:
 dotnet ef database update <previous migration> -p Infrastructure -s API
 ```
 
+Remove Migration:
+```console
+dotnet ef migration remove <Migration Name> -p Infrastructure -s API
+```
 
