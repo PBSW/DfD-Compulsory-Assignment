@@ -21,13 +21,25 @@ the migrations is located in the Manuel folder as SQL scripts
 
 ## EF Core
 
-1. update the database to the latest migration
+1. Create Migration:
 
 ```console
-dotnet ef database update -p Products/API/API.csproj
+dotnet ef migration <Migration Name> -p Infrastructure -s API
 ```
 
-2. checkout the initial migration (rollback)
+2. Update Database to latest migration:
 ```console
-dotnet ef database update ?????????????????????????????? -p Products/API/API.csproj
+dotnet ef database update -p Infrastructure -s API
 ```
+
+3. Check applied migrations:
+```console
+dotnet ef migration list -p API
+```
+
+Rollback:
+```console
+dotnet ef database update <previous migration> -p Infrastructure -s API
+```
+
+
