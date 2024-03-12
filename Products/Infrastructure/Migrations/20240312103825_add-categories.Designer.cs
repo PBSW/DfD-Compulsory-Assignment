@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240310194910_v1.1-2049-10032424-add-categories")]
-    partial class v11204910032424addcategories
+    [Migration("20240312103825_add-categories")]
+    partial class addcategories
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
